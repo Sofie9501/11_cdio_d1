@@ -2,6 +2,8 @@ package data;
 
 import java.util.List;
 
+import utils.DALException;
+
 public class OperatorData implements IOperatorDAO{
 
 	@Override
