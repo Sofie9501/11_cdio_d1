@@ -45,7 +45,7 @@ public class OperatorView implements IOperatorView {
 		
 	}
 	
-	public void showNetto(int Tara, int Brutto, int Netto){
+	public void showNetto(double Tara, double Brutto, double Netto){
 		
 	}
 	

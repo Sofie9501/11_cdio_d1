@@ -1,6 +1,13 @@
 package controllers;
 
+import view.IOperatorView;
+
 public class OperatorCO{
+	IOperatorView view;
+	
+	public OperatorCO(IOperatorView view){
+		this.view = view;
+	}
 
 	public void run(){
 	}
@@ -12,6 +19,9 @@ public class OperatorCO{
 	}
 	
 	private void wheighing(){
+		double TARA = view.getTara();
+		double brutto = view.getBrutto();
+		view.showNetto(TARA, brutto, brutto-TARA);
 	}
 	
 	private void login(){
