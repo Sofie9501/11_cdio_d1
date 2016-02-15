@@ -3,7 +3,7 @@ package view;
 import java.util.Scanner;
 
 import controllers.IOperatorCO;
-import controllers.OperatorCO;
+
 
 public class OperatorView {
 	IOperatorCO con;
@@ -11,7 +11,14 @@ public class OperatorView {
 		this.con = con;
 	}
 	
-	private void adminMenu(){
+	public int adminMenu(){
+		Scanner scan = new Scanner(System.in);
+		System.out.println("1. Make new operator");
+		System.out.println("2. Change operator details");
+		System.out.println("3. Delete operator");
+		int val = scan.nextInt();
+		scan.close();
+		return val;
 		
 	}
 	

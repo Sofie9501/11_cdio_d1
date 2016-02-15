@@ -1,6 +1,14 @@
 package controllers;
 
+import data.IOperatorDAO;
+
 public class OperatorCO implements IOperatorCO{
+	
+	IOperatorDAO dao;
+	
+	public OperatorCO(IOperatorDAO dao){
+		this.dao = dao;
+	}
 
 	@Override
 	public boolean login(int oprID, String password, boolean adminNeeded) {
