@@ -1,57 +1,41 @@
 package controllers;
 
-import data.IOperatorDAO;
+public class OperatorCO{
 
-public class OperatorCO implements IOperatorCO{
+	public void run(){
+	}
 	
-	IOperatorDAO dao;
+	private void menu(){
+	}
 	
-	public OperatorCO(IOperatorDAO dao){
-		this.dao = dao;
+	private void adminMenu(){
 	}
-
-	@Override
-	public boolean login(int oprID, String password, boolean adminNeeded) {
-		// TODO Auto-generated method stub
-		return false;
+	
+	private void wheighing(){
 	}
-
-	@Override
-	public String addOperator(String cpr, String oprName) {
-		// TODO Auto-generated method stub
-		return null;
+	
+	private void login(){
 	}
-
-	@Override
-	public void changePassword(int oprID, String oldPassword, String newPassword) {
-		// TODO Auto-generated method stub
-
+	
+	private void changePassword(){
 	}
-
-	@Override
-	public double weighing(double TARA, double brutto) {
-		
-		return brutto-TARA;
+	
+	private void addOperator(){
 	}
-
-	@Override
-	public void deleteOperator(int oprID) {
-		// TODO Auto-generated method stub
-
+	
+	private void removeOperator(){
 	}
-
-	@Override
-	public String getOperator(int oprID) {
-		// TODO Auto-generated method stub
-		return null;
+	
+	private void viewOperator(){
 	}
-
-	@Override
-	public void updateOperator(int oprID, int cpr, String name) {
-		// TODO Auto-generated method stub
-
+	
+	private void updateOperator(){
 	}
-
+	
+	private void generatePassword(){
+	}
+	
+	
 	// validates password using same rules as the dtu password system
 	// returns true if validated
 	private boolean validatePassword(String pass){
@@ -79,5 +63,6 @@ public class OperatorCO implements IOperatorCO{
 		// password not verified
 		return false;
 	}
+	
 
 }
