@@ -29,10 +29,19 @@ public class OperatorView implements IOperatorView {
 	}
 	
 	public double getTara(){
-		
+		Scanner scan = new Scanner(System.in);
+		System.out.println("Enter TARA in kg.");
+		double TARA = scan.nextDouble();
+		scan.close();
+		return TARA;
 	}
 	
 	public double getBrutto(){
+		Scanner scan = new Scanner(System.in);
+		System.out.println("Enter gross in kg.");
+		double brutto = scan.nextDouble();
+		scan.close();
+		return brutto;
 		
 	}
 	
