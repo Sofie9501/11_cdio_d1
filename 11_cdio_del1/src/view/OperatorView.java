@@ -2,13 +2,10 @@ package view;
 
 import java.util.Scanner;
 
-import controllers.IOperatorCO;
-
 
 public class OperatorView implements IOperatorView {
-	IOperatorCO con;
-	public OperatorView(IOperatorCO con){
-		this.con = con;
+	
+	public OperatorView(){
 	}
 	
 	public int menuChoice(){
@@ -19,7 +16,7 @@ public class OperatorView implements IOperatorView {
 		 
 	}
 	
-	public int getOperatorID(){
+	public int getOprID(){
 		
 	}
 	
@@ -39,11 +36,11 @@ public class OperatorView implements IOperatorView {
 		
 	}
 	
-	public void showNetto(){
+	public void showNetto(int Tara, int Brutto, int Netto){
 		
 	}
 	
-	public String getOperatorName(){
+	public String getOprName(){
 		
 	}
 	
@@ -51,7 +48,7 @@ public class OperatorView implements IOperatorView {
 		
 	}
 	
-	public void showOperator (int oprId, String cpr, String name, String password){
+	public void showOpr (int oprId, String cpr, String name, String password){
 		
 	}
 	
