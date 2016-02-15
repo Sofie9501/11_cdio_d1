@@ -19,13 +19,12 @@ public class OperatorView {
 		
 	}
 	private void weighing(){
-		double TARA = 0;
-		double brutto = 0;
 		Scanner scan = new Scanner(System.in);
 		System.out.println("Enter TARA in kg." );
-		TARA = scan.nextDouble();
+		double TARA = scan.nextDouble();
 		System.out.println("Enter gross in kg.");
-		brutto = scan.nextDouble();
+		double brutto = scan.nextDouble();
+		scan.close();
 		System.out.println("The net is " + con.weighing(TARA, brutto));
 		
 	}
