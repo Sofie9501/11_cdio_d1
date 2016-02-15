@@ -22,7 +22,7 @@ public class testGenPassword {
 		
 		while(countTotal < passLength){
 			ascii = randInt(33, 126);
-			if(((ascii >= 33 && ascii <= 47) || (ascii >= 58 && ascii <= 64) || (ascii >= 91 && ascii <= 96) || (ascii >= 123 && ascii <= 126)) && counter1 < 2){
+			if(((ascii >= 33 && ascii <= 47) || (ascii >= 58 && ascii <= 63) || (ascii >= 91 && ascii <= 95) || (ascii >= 123 && ascii <= 126)) && counter1 < 2 && ascii != 35 && ascii != 36){
 				password = ((char)ascii) + password;
 				counter1++;
 			}
