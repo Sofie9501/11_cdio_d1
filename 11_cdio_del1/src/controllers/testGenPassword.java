@@ -1,7 +1,5 @@
 package controllers;
 
-import java.util.Random;
-
 public class testGenPassword {
 
 	public static void main(String[] args) {
