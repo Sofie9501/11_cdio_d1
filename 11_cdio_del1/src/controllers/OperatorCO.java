@@ -21,9 +21,9 @@ public class OperatorCO implements IOperatorCO{
 	}
 
 	@Override
-	public double weighing(int TARA, int netto) {
-		// TODO Auto-generated method stub
-		return 0;
+	public double weighing(double TARA, double brutto) {
+		
+		return brutto-TARA;
 	}
 
 	@Override
