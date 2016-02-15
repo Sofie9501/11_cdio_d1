@@ -6,7 +6,7 @@ import controllers.IOperatorCO;
 import controllers.OperatorCO;
 
 public class OperatorView {
-	IOperatorCO con = new OperatorCO();
+	IOperatorCO con;
 	public OperatorView(IOperatorCO con){
 		this.con = con;
 	}
