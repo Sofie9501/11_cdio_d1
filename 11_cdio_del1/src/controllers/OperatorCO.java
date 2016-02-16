@@ -69,9 +69,9 @@ public class OperatorCO{
 	private void removeOperator(){
 		try{
 		data.deleteOperator(data.getOperator(view.getOprID()));
-		}
-		catch(DALException e){
+		}catch(DALException e){
 			view.showError(e.getMessage());
+			return;
 		}
 		view.showError("Operator removed");
 	}
@@ -80,9 +80,9 @@ public class OperatorCO{
 		List<OperatorDTO> operators = null;
 		try{
 			operators = data.getOperatorList();
-		}
-		catch(DALException e){
+		}catch(DALException e){
 			view.showError(e.getMessage());
+			return;
 		}
 		for (int i = 0; i < operators.size(); i++) {
 			OperatorDTO DTO = operators.get(i);
@@ -91,6 +91,27 @@ public class OperatorCO{
 	}
 
 	private void updateOperator(){
+		OperatorDTO DTO = null;
+		try{
+			DTO = data.getOperator(view.getOprID());
+		}catch(DALException e){
+			view.showError(e.getMessage());
+			return;
+		}
+		int choice = view.getUpdateChoice();
+		if (choice == 0){
+			return;
+		}
+		switch (choice){
+		case 1: DTO.setOprName(view.getOprName());break;
+		case 2: DTO.setCpr(view.getCPR());break;
+		}
+		try{
+			data.updateOperator(DTO);
+		}catch(DALException e){
+			view.showError(e.getMessage());
+		}
+		
 	}
 
 	private String generatePassword(){
