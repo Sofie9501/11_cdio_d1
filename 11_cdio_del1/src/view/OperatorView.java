@@ -6,6 +6,7 @@ import java.util.Scanner;
 public class OperatorView implements IOperatorView {
 
 	Scanner scan;
+	
 	public OperatorView(){
 		scan = new Scanner(System.in);
 	}

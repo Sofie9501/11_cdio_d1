@@ -4,7 +4,7 @@ package data;
  *	OperatorDTO is the domain model for
  *	operators in the system
  */
-public class OperatorDTO{
+public class OperatorDTO implements Comparable{
 	private int oprId;
 	private String oprName;
 	private String cpr;			// CPR should be on the from xxxxxx-xxxx
@@ -55,6 +55,12 @@ public class OperatorDTO{
 
 	public void setAdmin(boolean admin) {
 		this.admin = admin;
+	}
+
+	@Override
+	public int compareTo(Object o) {
+		return  this.oprId - ((OperatorDTO)o).getOprId();
+		
 	}
 	
 	
