@@ -33,7 +33,9 @@ public class OperatorData implements IOperatorDAO{
 
 	@Override
 	public void deleteOperator(OperatorDTO opr) throws DALException {
-		// TODO Auto-generated method stub
+		if (!operators.remove(opr)){
+			throw new DALException(opr.getOprId() + " can't be deleted, cause OprID doesnot exist");
+		}
 		
 	}
 
