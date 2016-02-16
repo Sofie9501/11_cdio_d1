@@ -105,7 +105,8 @@ public class OperatorView implements IOperatorView {
 	}
 
 	public void showError (String error){
-
+		System.out.println(error);
+		return;
 	}
 
 	public int getUpdateChoice(){
