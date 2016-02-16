@@ -13,7 +13,7 @@ public class OperatorData implements IOperatorDAO{
 	public OperatorData(){
 		operators =  new ArrayList<>();
 	}
-	
+
 	// Returns an operator object if opr id exist otherwise throws exception
 	@Override
 	public OperatorDTO getOperator(int oprId) throws DALException {
@@ -24,24 +24,31 @@ public class OperatorData implements IOperatorDAO{
 		throw new DALException("Operator with " + oprId + " does not exist");
 	}
 
-	
+
 	// returns a list with a copy of all operatorDTO objects in operators list
 	@Override
 	public List<OperatorDTO> getOperatorList() throws DALException {
 		if(operators.size() == 0)
 			throw new DALException("No operators stored");
-		
+
 		List<OperatorDTO> clonedList = new ArrayList<>();
 		for(OperatorDTO opr: operators)
 			clonedList.add(new OperatorDTO(opr));
-		
+
 		return clonedList;
 	}
 
 	@Override
 	public void createOperator(OperatorDTO opr) throws DALException {
-		// TODO Auto-generated method stub
-
+		for(OperatorDTO oprerator: operators){
+			if (oprerator.getOprId()==opr.getOprId()){
+				throw new DALException(opr.getOprId() + " already exist.");
+			}
+			else if (oprerator.getCpr()==opr.getCpr()){
+				throw new DALException(opr.getCpr() + " already exist.");
+			}
+		}
+		operators.add(opr);
 	}
 
 	@Override
