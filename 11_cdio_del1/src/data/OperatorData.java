@@ -43,10 +43,10 @@ public class OperatorData implements IOperatorDAO{
 	public void createOperator(OperatorDTO opr) throws DALException {
 		for(OperatorDTO oprerator: operators){
 			if (oprerator.getOprId()==opr.getOprId()){
-				throw new DALException(opr.getOprId() + " already exist.");
+				throw new DALException("OperatorId " + opr.getOprId() + " already exist.");
 			}
 			else if (oprerator.getCpr()==opr.getCpr()){
-				throw new DALException(opr.getCpr() + " already exist.");
+				throw new DALException("Cpr " + opr.getCpr() + " already exist.");
 			}
 		}
 		operators.add(opr);
