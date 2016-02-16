@@ -17,15 +17,27 @@ public class OperatorCO{
 	}
 
 	public void run(){
+		while(true){
+			menu();
+		}
 	}
 
 	private void menu(){
+		int choice = view.menuChoice();
+		if (choice == 0)
+			return;
+		switch (choice){
+		case 1: adminMenu();break;
+		case 2: changePassword();break;
+		case 3: weighing(); break;
+		default: return;
+		}
+		
 	}
 
 	private void adminMenu(){
-		boolean log = login(true);
 		int choice = 0;
-		if (log)
+		if (login(true))
 			choice = view.adminMenuChoice();
 		else{
 			view.showError("Wrong login or password");
@@ -41,10 +53,17 @@ public class OperatorCO{
 		}
 	}
 
-	private void wheighing(){
-		double TARA = view.getTara();
-		double brutto = view.getBrutto();
-		view.showNetto(TARA, brutto, brutto-TARA);
+	private void weighing(){
+		if (login(false)){
+			double TARA = view.getTara();
+			double brutto = view.getBrutto();
+			view.showNetto(TARA, brutto, brutto-TARA);
+		}
+		else{
+			view.showError("Wrong login or password");
+			return;
+		}
+		
 	}
 
 	private boolean login(boolean adminNeeded){
@@ -62,6 +81,12 @@ public class OperatorCO{
 		operator.setCpr(view.getCPR());
 		operator.setPassword(generatePassword());
 		operator.setOprId(getNextOprID());
+		try{
+			data.createOperator(operator);
+		}catch (DALException e){
+			view.showError(e.getMessage());
+			return;
+		}
 		view.showOpr(operator.getOprId(), operator.getCpr(), 
 						operator.getOprName(), operator.getPassword());
 	}

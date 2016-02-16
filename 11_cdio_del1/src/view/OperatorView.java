@@ -9,6 +9,18 @@ public class OperatorView implements IOperatorView {
 	}
 
 	public int menuChoice(){
+		System.out.println("Menu");
+		System.out.println("1. Admin menu");
+		System.out.println("2. Change password");
+		System.out.println("3. Weighing");
+		System.out.println("4. Exit");
+		Scanner scan = new Scanner(System.in);
+		int choice = scan.nextInt();
+		scan.close();
+		if (choice > 0 && choice < 5)
+			return choice;
+		System.out.println("Invalid choice");
+		return 0;
 
 	}
 
