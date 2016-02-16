@@ -5,10 +5,10 @@ import java.util.List;
 import utils.DALException;
 
 public interface IOperatorDAO {
-	OperatorDTO getOperatoer(int oprId) throws DALException;
-	List<OperatorDTO> getOperatoerList() throws DALException;
-	void createOperatoer(OperatorDTO opr) throws DALException;
-	void updateOperatoer(OperatorDTO opr) throws DALException;
-	void deleteOperatoer(OperatorDTO opr) throws DALException;
+	OperatorDTO getOperator(int oprId) throws DALException;
+	List<OperatorDTO> getOperatorList() throws DALException;
+	void createOperator(OperatorDTO opr) throws DALException;
+	void updateOperator(OperatorDTO opr) throws DALException;
+	void deleteOperator(OperatorDTO opr) throws DALException;
 
 }

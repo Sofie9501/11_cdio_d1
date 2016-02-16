@@ -5,33 +5,34 @@ import java.util.List;
 import utils.DALException;
 
 public class OperatorData implements IOperatorDAO{
-
+	
+	List<OperatorDTO> operators;
 	@Override
-	public OperatorDTO getOperatoer(int oprId) throws DALException {
+	public OperatorDTO getOperator(int oprId) throws DALException {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<OperatorDTO> getOperatoerList() throws DALException {
+	public List<OperatorDTO> getOperatorList() throws DALException {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void createOperatoer(OperatorDTO opr) throws DALException {
+	public void createOperator(OperatorDTO opr) throws DALException {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void updateOperatoer(OperatorDTO opr) throws DALException {
+	public void updateOperator(OperatorDTO opr) throws DALException {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void deleteOperatoer(OperatorDTO opr) throws DALException {
+	public void deleteOperator(OperatorDTO opr) throws DALException {
 		// TODO Auto-generated method stub
 		
 	}

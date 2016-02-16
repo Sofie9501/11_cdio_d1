@@ -58,7 +58,9 @@ public class OperatorView implements IOperatorView {
 	}
 	
 	public void showNetto(double Tara, double Brutto, double Netto){
-		
+		System.out.println("You have entered gross: " + Brutto);
+		System.out.println("You have entered TARA: " + Tara);
+		System.out.println("Net is: " + Netto);
 	}
 	
 	public String getOprName(){
