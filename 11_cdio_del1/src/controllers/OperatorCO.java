@@ -20,13 +20,11 @@ public class OperatorCO{
 	public void run(){
 		while(true){
 			int choice = view.menuChoice();
-			if (choice == 0)
-				return;
 			switch (choice){
 			case 1: adminMenu();break;
 			case 2: changePassword();break;
 			case 3: weighing(); break;
-			default: return;
+			case 4: return;
 			}
 		}
 

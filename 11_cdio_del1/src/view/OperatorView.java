@@ -16,7 +16,6 @@ public class OperatorView implements IOperatorView {
 	}
 
 	public int menuChoice(){
-		while(true){
 		System.out.println("Menu");
 		System.out.println("1. Admin menu");
 		System.out.println("2. Change password");
@@ -27,8 +26,8 @@ public class OperatorView implements IOperatorView {
 		if (choice > 0 && choice < 5)
 			return choice;
 		System.out.println("Invalid choice");
+		return 0;
 		
-		}
 	}
 
 	public int adminMenuChoice(){
