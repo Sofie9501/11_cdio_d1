@@ -106,7 +106,7 @@ public class OperatorView implements IOperatorView {
 	}
 
 	public void showOpr (int oprId, String cpr, String name, String password){
-		System.out.println(oprId + " Name: " + name + " CPR: " + cpr + " Password: " + password);
+		System.out.println("Opr ID: " + oprId + " Name: " + name + " CPR: " + cpr + " Password: " + password);
 	}
 
 	public void showError (String error){
