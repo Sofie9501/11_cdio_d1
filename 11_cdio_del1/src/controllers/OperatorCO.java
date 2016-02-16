@@ -36,8 +36,9 @@ public class OperatorCO{
 	}
 
 	private void adminMenu(){
+		boolean log = login(true);
 		int choice = 0;
-		if (login(true))
+		if (log)
 			choice = view.adminMenuChoice();
 		else{
 			view.showError("Wrong login or password");
@@ -54,7 +55,8 @@ public class OperatorCO{
 	}
 
 	private void weighing(){
-		if (login(false)){
+		boolean log = login(false);
+		if (log){
 			double TARA = view.getTara();
 			double brutto = view.getBrutto();
 			view.showNetto(TARA, brutto, brutto-TARA);
