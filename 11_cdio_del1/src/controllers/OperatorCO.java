@@ -47,8 +47,9 @@ public class OperatorCO{
 		view.showNetto(TARA, brutto, brutto-TARA);
 	}
 
-	private boolean login(boolean adminneeded){
-
+	private boolean login(boolean adminNeeded){
+		int ID = view.getOprID();
+		String pass = view.getPassword();
 		return false;
 	}
 
