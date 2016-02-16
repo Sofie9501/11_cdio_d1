@@ -76,21 +76,22 @@ public class OperatorView implements IOperatorView {
 
 	public double getTara(){
 		System.out.println("Enter TARA in kg.");
-		double tara = scan.nextDouble();
+		double tara = Double.parseDouble(scan.nextLine());
 		return tara;
 	}
 
 	public double getBrutto(){
 		System.out.println("Enter gross in kg.");
-		double brutto = scan.nextDouble();
+		double brutto = Double.parseDouble(scan.nextLine());
 		return brutto;
 
 	}
 
 	public void showNetto(double Tara, double Brutto, double Netto){
-		System.out.println("You have entered gross: " + Brutto);
-		System.out.println("You have entered TARA: " + Tara);
-		System.out.println("Net is: " + Netto);
+		System.out.println("You have entered gross: " + Brutto + "kg");
+		System.out.println("You have entered TARA: " + Tara + "kg");
+		System.out.println("Net is: " + Netto + "kg");
+		scan.nextLine();
 	}
 
 	public String getOprName(){
