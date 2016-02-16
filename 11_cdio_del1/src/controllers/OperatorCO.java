@@ -94,7 +94,11 @@ public class OperatorCO{
 		try{		
 			if(oldPass.equals(data.getOperator(ID))){
 				String newPass = view.getNewPassword();
-				data.getOperator(ID).setPassword(newPass);
+				if (validatePassword(newPass)){
+					data.getOperator(ID).setPassword(newPass);
+				}
+				else 
+					view.showError("New password is not okay");
 			}
 			else
 				view.showError("Wrong ID or password. ");
