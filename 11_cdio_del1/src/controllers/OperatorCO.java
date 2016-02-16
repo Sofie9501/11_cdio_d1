@@ -115,7 +115,7 @@ public class OperatorCO{
 	}
 
 	private String generatePassword(){
-		return null;
+		return "01psGH.-";
 	}
 
 
