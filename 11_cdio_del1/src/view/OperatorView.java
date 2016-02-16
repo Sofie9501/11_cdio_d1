@@ -105,10 +105,20 @@ public class OperatorView implements IOperatorView {
 	}
 
 	public void showError (String error){
-
+		System.out.println(error);
+		return;
 	}
 
 	public int getUpdateChoice(){
+		System.out.println("1. Change cprNr");
+		System.out.println("2. Change name");
+		Scanner scan = new Scanner(System.in);
+		int choice = scan.nextInt();
+		scan.close();
+		if (choice > 0 && choice < 3)
+			return choice;
+		System.out.println("Invalid choice");
+		return 0;
 
 	}
 
