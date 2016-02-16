@@ -76,9 +76,9 @@ public class OperatorView implements IOperatorView {
 	public double getTara(){
 		Scanner scan = new Scanner(System.in);
 		System.out.println("Enter TARA in kg.");
-		double TARA = scan.nextDouble();
+		double tara = scan.nextDouble();
 		scan.close();
-		return TARA;
+		return tara;
 	}
 
 	public double getBrutto(){
@@ -107,9 +107,9 @@ public class OperatorView implements IOperatorView {
 	public String getCPR(){
 		Scanner scan = new Scanner(System.in);
 		System.out.println("Enter CPR: ");
-		String CPR = scan.nextLine();
+		String cpr = scan.nextLine();
 		scan.close();
-		return CPR;
+		return cpr;
 	}
 
 	public void showOpr (int oprId, String cpr, String name, String password){
