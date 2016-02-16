@@ -3,12 +3,13 @@ package data;
 import java.util.ArrayList;
 import java.util.List;
 
+
 import utils.DALException;
 
 public class OperatorData implements IOperatorDAO{
-	
+
 	List<OperatorDTO> operators;
-	
+
 	public OperatorData(){
 		operators =  new ArrayList<>();
 	}
@@ -40,21 +41,29 @@ public class OperatorData implements IOperatorDAO{
 	@Override
 	public void createOperator(OperatorDTO opr) throws DALException {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void updateOperator(OperatorDTO opr) throws DALException {
-		// TODO Auto-generated method stub
-		
+		for (int i = 0; i < operators.size(); i++) {
+			if (operators.get(i).getOprId()==opr.getOprId()){
+				operators.get(i).setCpr(opr.getCpr());
+				operators.get(i).setOprName(opr.getOprName());
+				return;
+			}
+		}
+		throw new DALException(opr.getOprId() + " can't be updated, cause OprID does not exist");
 	}
 
 	@Override
 	public void deleteOperator(OperatorDTO opr) throws DALException {
-		if (!operators.remove(opr)){
-			throw new DALException(opr.getOprId() + " can't be deleted, cause OprID doesnot exist");
+		for (int i = 0; i < operators.size(); i++) {
+			if (operators.get(i).getOprId()==opr.getOprId()){
+				operators.remove(i);
+				return;
+			}
 		}
-		
+		throw new DALException(opr.getOprId() + " can't be deleted, cause OprID does not exist");
 	}
-
 }
