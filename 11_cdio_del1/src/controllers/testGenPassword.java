@@ -4,7 +4,7 @@ public class testGenPassword {
 
 	public static void main(String[] args) {
 		
-		int passwordLength = 8;
+		int passwordLength = 7;
 		
 		for(int i=0; i<10;i++){
 			System.out.println(genPassword(passwordLength));
@@ -20,7 +20,7 @@ public class testGenPassword {
 		
 		while(countTotal < passLength){
 			ascii = randInt(33, 126);
-			if(((ascii >= 33 && ascii <= 47) || (ascii >= 58 && ascii <= 63) || (ascii >= 91 && ascii <= 95) || (ascii >= 123 && ascii <= 126)) && counter1 < 2 && ascii != 35 && ascii != 36){
+			if(((ascii >= 33 && ascii <= 47) || (ascii >= 58 && ascii <= 63) || (ascii >= 91 && ascii <= 95) || (ascii >= 123 && ascii <= 126)) && counter1 < 1 && ascii != 35 && ascii != 36){
 				password = ((char)ascii) + password;
 				counter1++;
 			}
