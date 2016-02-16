@@ -1,5 +1,6 @@
 package controllers;
 
+import java.util.Collections;
 import java.util.List;
 
 import data.IOperatorDAO;
@@ -212,8 +213,21 @@ public class OperatorCO{
 		// password not verified
 		return false;
 	}
+	
+	@SuppressWarnings("unchecked")
 	private int getNextOprID(){
-		return 0;
+		List<OperatorDTO> operators;
+		try{
+		operators = data.getOperatorList();
+		}catch(DALException e){
+			return 11;
+		}
+		Collections.sort(operators);
+		for(int i = 0; i < operators.size(); i++){
+			if(i+10 == operators.get(i).getOprId())
+				return i+10;
+		}
+		return -1;
 	}
 
 
