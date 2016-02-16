@@ -47,10 +47,28 @@ public class OperatorCO{
 		view.showNetto(TARA, brutto, brutto-TARA);
 	}
 
-	private boolean login(boolean adminNeeded){
+	private boolean login(boolean adminNeeded) throws DALException{
 		int ID = view.getOprID();
 		String pass = view.getPassword();
-		return false;
+
+		try{
+			if(adminNeeded){
+				if(pass.equals(data.getOperator(ID).getPassword()) && 
+						data.getOperator(ID).isAdmin())
+						return true;
+				else
+					return false;
+			}
+			else{
+				if(pass.equals(data.getOperator(ID).getPassword()))
+					return true;
+				else
+					return false;
+			}
+		}
+		catch(DALException e){
+			return false;
+		}
 	}
 
 	private void changePassword(){
