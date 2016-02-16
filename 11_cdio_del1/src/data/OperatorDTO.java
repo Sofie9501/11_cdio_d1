@@ -9,7 +9,11 @@ public class OperatorDTO{
 	private String oprName;
 	private String cpr;			// CPR should be on the from xxxxxx-xxxx
 	private String password;
+	boolean admin = false;
 	
+	public OperatorDTO(){
+		
+	}
 	
 	// Copy Constructor
 	public OperatorDTO(OperatorDTO opr){
