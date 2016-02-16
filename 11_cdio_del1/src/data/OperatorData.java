@@ -1,5 +1,6 @@
 package data;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import utils.DALException;
@@ -7,10 +8,17 @@ import utils.DALException;
 public class OperatorData implements IOperatorDAO{
 	
 	List<OperatorDTO> operators;
+	
+	public OperatorData(){
+		operators =  new ArrayList<>();
+	}
 	@Override
 	public OperatorDTO getOperator(int oprId) throws DALException {
-		// TODO Auto-generated method stub
-		return null;
+		for(OperatorDTO opr: operators){
+			if(opr.getOprId() == oprId)
+				return opr;
+		}
+		throw new DALException("Operator with " + oprId + " does not exist");
 	}
 
 	@Override
@@ -33,7 +41,7 @@ public class OperatorData implements IOperatorDAO{
 
 	@Override
 	public void deleteOperator(OperatorDTO opr) throws DALException {
-		// TODO Auto-generated method stub
+		
 		
 	}
 
