@@ -27,7 +27,7 @@ public class OperatorView implements IOperatorView {
 		if (choice > 0 && choice < 5)
 			return choice;
 		System.out.println("Invalid choice");
-		return 0;
+		
 		}
 	}
 
