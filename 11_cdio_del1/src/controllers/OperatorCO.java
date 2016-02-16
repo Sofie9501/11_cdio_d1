@@ -119,7 +119,7 @@ public class OperatorCO{
 		OperatorDTO operator = new OperatorDTO();
 		operator.setOprName(view.getOprName());
 		operator.setCpr(view.getCPR());
-		operator.setPassword(generatePassword());
+		operator.setPassword(genPassword(8));
 		operator.setOprId(oprID);
 		try{
 			data.createOperator(operator);
@@ -186,8 +186,26 @@ public class OperatorCO{
 
 	}
 
-	private String generatePassword(){
-		return "01psGH.-";
+	private static String genPassword(int passLength) {
+
+		char[] password = new char[passLength];
+		
+		String chars = ".-_+!?=";
+		 
+		password[0] = (char)randInt(48, 57);
+		password[1] = (char)randInt(65, 90);
+		password[2] = (char)randInt(97,122);
+		password[3] = chars.charAt(randInt(0,6));
+		
+		for(int i =4; i<passLength; i++){
+			switch(randInt(0,3)){
+				case 0:	password[i] = (char)randInt(48, 57);
+				case 1:	password[i] = (char)randInt(65, 90);
+				case 2:	password[i] = (char)randInt(97,122);
+				case 3:	password[i] = chars.charAt(randInt(0,6));	
+			}
+		}
+		return password.toString();
 	}
 
 
@@ -234,6 +252,9 @@ public class OperatorCO{
 		}
 		return -1;
 	}
-
+	
+	private static int randInt(int min, int max) {
+	    return ((int)(Math.random()*(max-min)+min));
+	}
 
 }
