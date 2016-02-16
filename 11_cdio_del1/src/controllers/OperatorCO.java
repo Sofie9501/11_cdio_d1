@@ -128,14 +128,21 @@ public class OperatorCO{
 	}
 
 	private void removeOperator(){
-		try{
-			data.deleteOperator(data.getOperator(view.getOprID()));
-		}catch(DALException e){
-			view.showError(e.getMessage());
-			return;
+		int id = view.getOprID();
+		if (id > 11 && id < 89){
+			try{
+				data.deleteOperator(data.getOperator(id));
+			}catch(DALException e){
+				view.showError(e.getMessage());
+				return;
+			}
+			view.showError("Operator removed");
 		}
-		view.showError("Operator removed");
+		else{
+			view.showError("Invalid OperatorID");
+		}
 	}
+
 
 	private void viewOperator(){
 		List<OperatorDTO> operators = null;
