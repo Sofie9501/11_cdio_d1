@@ -55,6 +55,9 @@ public class OperatorView implements IOperatorView {
 			if (password1.equals(password2)){
 				return password1;
 			}
+			else{
+				System.out.println("The two password are not equal, try again: ");
+			}
 		}
 	}
 

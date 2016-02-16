@@ -1,7 +1,10 @@
 package controllers;
 
+import java.util.List;
+
 import data.IOperatorDAO;
 import data.OperatorDTO;
+import utils.DALException;
 import view.IOperatorView;
 
 public class OperatorCO{
@@ -44,8 +47,9 @@ public class OperatorCO{
 		view.showNetto(TARA, brutto, brutto-TARA);
 	}
 
-	private boolean login(boolean adminneeded){
-
+	private boolean login(boolean adminNeeded){
+		int ID = view.getOprID();
+		String pass = view.getPassword();
 		return false;
 	}
 
@@ -58,13 +62,32 @@ public class OperatorCO{
 		operator.setCpr(view.getCPR());
 		operator.setPassword(generatePassword());
 		operator.setOprId(getNextOprID());
-		view.showOpr(operator.getOprId(), operator.getCpr(), operator.getOprName(), operator.getPassword());
+		view.showOpr(operator.getOprId(), operator.getCpr(), 
+						operator.getOprName(), operator.getPassword());
 	}
 
 	private void removeOperator(){
+		try{
+		data.deleteOperator(data.getOperator(view.getOprID()));
+		}
+		catch(DALException e){
+			view.showError(e.getMessage());
+		}
+		view.showError("Operator removed");
 	}
 
 	private void viewOperator(){
+		List<OperatorDTO> operators = null;
+		try{
+			operators = data.getOperatorList();
+		}
+		catch(DALException e){
+			view.showError(e.getMessage());
+		}
+		for (int i = 0; i < operators.size(); i++) {
+			OperatorDTO DTO = operators.get(i);
+			view.showOpr(DTO.getOprId(), DTO.getCpr(), DTO.getOprName(), DTO.getPassword());
+		}
 	}
 
 	private void updateOperator(){
