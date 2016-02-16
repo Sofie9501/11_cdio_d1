@@ -28,7 +28,7 @@ public class OperatorView implements IOperatorView {
 			return choice;
 		System.out.println("Invalid choice");
 		return 0;
-
+		
 	}
 
 	public int adminMenuChoice(){
@@ -36,8 +36,8 @@ public class OperatorView implements IOperatorView {
 		System.out.println("1. Create new operator");
 		System.out.println("2. Delete operator");
 		System.out.println("3. View operators");
-		System.out.println("4. Update opoerator");
-		int choice = scan.nextInt();
+		System.out.println("4. Update operator");
+		int choice = Integer.parseInt(scan.nextLine());
 	
 		if (choice > 0 && choice < 5)
 			return choice;
@@ -106,7 +106,7 @@ public class OperatorView implements IOperatorView {
 	}
 
 	public void showOpr (int oprId, String cpr, String name, String password){
-
+		System.out.println("Opr ID: " + oprId + " Name: " + name + " CPR: " + cpr + " Password: " + password);
 	}
 
 	public void showError (String error){
@@ -117,7 +117,7 @@ public class OperatorView implements IOperatorView {
 	public int getUpdateChoice(){
 		System.out.println("1. Change cprNr");
 		System.out.println("2. Change name");
-		int choice = scan.nextInt();
+		int choice = Integer.parseInt(scan.nextLine());
 		if (choice > 0 && choice < 3)
 			return choice;
 		System.out.println("Invalid choice");

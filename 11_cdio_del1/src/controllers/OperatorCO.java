@@ -20,13 +20,11 @@ public class OperatorCO{
 	public void run(){
 		while(true){
 			int choice = view.menuChoice();
-			if (choice == 0)
-				return;
 			switch (choice){
 			case 1: adminMenu();break;
 			case 2: changePassword();break;
 			case 3: weighing(); break;
-			default: return;
+			case 4: return;
 			}
 		}
 
@@ -92,11 +90,15 @@ public class OperatorCO{
 	private void changePassword(){
 		int ID = view.getOprID();
 		String oldPass = view.getPassword();
-		
+
 		try{		
 			if(oldPass.equals(data.getOperator(ID))){
 				String newPass = view.getNewPassword();
-				data.getOperator(ID).setPassword(newPass);
+				if (validatePassword(newPass)){
+					data.getOperator(ID).setPassword(newPass);
+				}
+				else 
+					view.showError("New password is not okay");
 			}
 			else
 				view.showError("Wrong ID or password. ");
@@ -124,14 +126,21 @@ public class OperatorCO{
 	}
 
 	private void removeOperator(){
-		try{
-			data.deleteOperator(data.getOperator(view.getOprID()));
-		}catch(DALException e){
-			view.showError(e.getMessage());
-			return;
+		int id = view.getOprID();
+		if (id > 11 && id < 89){
+			try{
+				data.deleteOperator(data.getOperator(id));
+			}catch(DALException e){
+				view.showError(e.getMessage());
+				return;
+			}
+			view.showError("Operator removed");
 		}
-		view.showError("Operator removed");
+		else{
+			view.showError("Invalid OperatorID");
+		}
 	}
+
 
 	private void viewOperator(){
 		List<OperatorDTO> operators = null;
