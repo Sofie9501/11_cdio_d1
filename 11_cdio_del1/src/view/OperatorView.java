@@ -43,9 +43,9 @@ public class OperatorView implements IOperatorView {
 	public int getOprID(){
 		Scanner scan = new Scanner(System.in);
 		System.out.println("Enter OprID: ");
-		int OprID = scan.nextInt();
+		int oprID = scan.nextInt();
 		scan.close();
-		return OprID;
+		return oprID;
 	}
 
 	public String getPassword() {
