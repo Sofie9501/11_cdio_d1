@@ -12,6 +12,16 @@ public class OperatorData implements IOperatorDAO{
 
 	public OperatorData(){
 		operators =  new ArrayList<>();
+		
+		// Tilføjer admin
+		OperatorDTO admin = new OperatorDTO();
+		admin.setOprId(10);
+		admin.setCpr("123456-7890");
+		admin.setPassword("Abc02324");
+		admin.setAdmin(true);
+		admin.setOprName("Administrator");
+		
+		operators.add(admin);
 	}
 
 	// Returns an operator object if opr id exist otherwise throws exception
