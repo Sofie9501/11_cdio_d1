@@ -13,6 +13,18 @@ public class OperatorView implements IOperatorView {
 	}
 	
 	public int adminMenuChoice(){
+		System.out.println("You are now loged in, what do you want to do?");
+		System.out.println("1. Create new operator");
+		System.out.println("2. Delete operator");
+		System.out.println("3. View operators");
+		System.out.println("4. Update opoerator");
+		Scanner scan = new Scanner(System.in);
+		int choice = scan.nextInt();
+		scan.close();
+		if (choice > 0 && choice < 5)
+			return choice;
+		System.out.println("Invalid choice");
+		return 0;
 		 
 	}
 	
@@ -46,7 +58,9 @@ public class OperatorView implements IOperatorView {
 	}
 	
 	public void showNetto(double Tara, double Brutto, double Netto){
-		
+		System.out.println("You have entered gross: " + Brutto);
+		System.out.println("You have entered TARA: " + Tara);
+		System.out.println("Net is: " + Netto);
 	}
 	
 	public String getOprName(){
