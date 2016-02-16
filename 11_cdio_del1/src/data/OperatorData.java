@@ -54,10 +54,10 @@ public class OperatorData implements IOperatorDAO{
 
 	@Override
 	public void updateOperator(OperatorDTO opr) throws DALException {
-		for (int i = 0; i < operators.size(); i++) {
-			if (operators.get(i).getOprId()==opr.getOprId()){
-				operators.get(i).setCpr(opr.getCpr());
-				operators.get(i).setOprName(opr.getOprName());
+		for(OperatorDTO oprerator: operators) {
+			if (oprerator.getOprId()==opr.getOprId()){
+				oprerator.setCpr(opr.getCpr());
+				oprerator.setOprName(opr.getOprName());
 				return;
 			}
 		}
@@ -66,9 +66,9 @@ public class OperatorData implements IOperatorDAO{
 
 	@Override
 	public void deleteOperator(OperatorDTO opr) throws DALException {
-		for (int i = 0; i < operators.size(); i++) {
-			if (operators.get(i).getOprId()==opr.getOprId()){
-				operators.remove(i);
+		for(OperatorDTO oprerator: operators) {
+			if (oprerator.getOprId()==opr.getOprId()){
+				operators.remove(oprerator);
 				return;
 			}
 		}
