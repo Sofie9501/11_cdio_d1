@@ -90,6 +90,21 @@ public class OperatorCO{
 	}
 
 	private void changePassword(){
+		int ID = view.getOprID();
+		String oldPass = view.getPassword();
+		
+		try{		
+			if(oldPass.equals(data.getOperator(ID))){
+				String newPass = view.getNewPassword();
+				data.getOperator(ID).setPassword(newPass);
+			}
+			else
+				view.showError("Wrong ID or password. ");
+		}
+		catch(DALException e){
+			view.showError(e.getMessage());
+			return;
+		}
 	}
 
 	private void addOperator(){
