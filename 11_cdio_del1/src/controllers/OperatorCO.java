@@ -183,7 +183,7 @@ public class OperatorCO{
 
 		// check if password is correct length and that it does not
 		// contain any invalid characters
-		if(pass.length() >= MIN_LENGTH && !pass.matches("(.*)[^.-_+!?=a-zA-z0-9](.*)")){
+		if(pass.length() >= MIN_LENGTH && !pass.matches("(.*)[^.-_+!?=a-zA-Z0-9](.*)")){
 
 			// 4 rules, 3 should be fulfilled
 			// 1: Contain upper characters (A-Z)
