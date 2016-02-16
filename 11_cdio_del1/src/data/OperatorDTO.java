@@ -11,6 +11,15 @@ public class OperatorDTO{
 	private String password;
 	
 	
+	// Copy Constructor
+	public OperatorDTO(OperatorDTO opr){
+		this.oprId = opr.oprId;
+		this.oprName = opr.oprName;
+		this.cpr = opr.cpr;
+		this.password = opr.password;
+	}
+	
+	
 	public int getOprId() {
 		return oprId;
 	}
@@ -35,5 +44,6 @@ public class OperatorDTO{
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
 
 }
