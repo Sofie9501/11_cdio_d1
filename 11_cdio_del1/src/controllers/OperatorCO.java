@@ -1,12 +1,16 @@
 package controllers;
 
+import data.IOperatorDAO;
+import data.OperatorDTO;
 import view.IOperatorView;
 
 public class OperatorCO{
 	IOperatorView view;
+	IOperatorDAO data;
 
-	public OperatorCO(IOperatorView view){
+	public OperatorCO(IOperatorView view, IOperatorDAO data){
 		this.view = view;
+		this.data = data;
 	}
 
 	public void run(){
@@ -49,6 +53,12 @@ public class OperatorCO{
 	}
 
 	private void addOperator(){
+		OperatorDTO operator = new OperatorDTO();
+		operator.setOprName(view.getOprName());
+		operator.setCpr(view.getCPR());
+		operator.setPassword(generatePassword());
+		operator.setOprId(getNextOprID());
+		view.showOpr(operator.getOprId(), operator.getCpr(), operator.getOprName(), operator.getPassword());
 	}
 
 	private void removeOperator(){
@@ -60,7 +70,8 @@ public class OperatorCO{
 	private void updateOperator(){
 	}
 
-	private void generatePassword(){
+	private String generatePassword(){
+		return null;
 	}
 
 
@@ -90,6 +101,9 @@ public class OperatorCO{
 		}
 		// password not verified
 		return false;
+	}
+	private int getNextOprID(){
+		return 0;
 	}
 
 
