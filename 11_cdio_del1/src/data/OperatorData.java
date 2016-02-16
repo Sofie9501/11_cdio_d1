@@ -28,9 +28,11 @@ public class OperatorData implements IOperatorDAO{
 	// returns a list with a copy of all operatorDTO objects in operators list
 	@Override
 	public List<OperatorDTO> getOperatorList() throws DALException {
+		// Throw exception if no operators
 		if(operators.size() == 0)
 			throw new DALException("No operators stored");
 		
+		// Copy list  and return it
 		List<OperatorDTO> clonedList = new ArrayList<>();
 		for(OperatorDTO opr: operators)
 			clonedList.add(new OperatorDTO(opr));
