@@ -16,23 +16,20 @@ public class OperatorCO{
 		this.data = data;
 	}
 
+
 	public void run(){
 		while(true){
-			menu();
+			int choice = view.menuChoice();
+			if (choice == 0)
+				return;
+			switch (choice){
+			case 1: adminMenu();break;
+			case 2: changePassword();break;
+			case 3: weighing(); break;
+			default: return;
+			}
 		}
-	}
 
-	private void menu(){
-		int choice = view.menuChoice();
-		if (choice == 0)
-			return;
-		switch (choice){
-		case 1: adminMenu();break;
-		case 2: changePassword();break;
-		case 3: weighing(); break;
-		default: return;
-		}
-		
 	}
 
 	private void adminMenu(){
@@ -63,7 +60,7 @@ public class OperatorCO{
 			view.showError("Wrong login or password");
 			return;
 		}
-		
+
 	}
 
 	private boolean login(boolean adminNeeded){
@@ -74,7 +71,7 @@ public class OperatorCO{
 			if(adminNeeded){
 				if(pass.equals(data.getOperator(ID).getPassword()) && 
 						data.getOperator(ID).isAdmin())
-						return true;
+					return true;
 				else
 					return false;
 			}
@@ -106,12 +103,12 @@ public class OperatorCO{
 			return;
 		}
 		view.showOpr(operator.getOprId(), operator.getCpr(), 
-						operator.getOprName(), operator.getPassword());
+				operator.getOprName(), operator.getPassword());
 	}
 
 	private void removeOperator(){
 		try{
-		data.deleteOperator(data.getOperator(view.getOprID()));
+			data.deleteOperator(data.getOperator(view.getOprID()));
 		}catch(DALException e){
 			view.showError(e.getMessage());
 			return;
@@ -154,7 +151,7 @@ public class OperatorCO{
 		}catch(DALException e){
 			view.showError(e.getMessage());
 		}
-		
+
 	}
 
 	private String generatePassword(){
