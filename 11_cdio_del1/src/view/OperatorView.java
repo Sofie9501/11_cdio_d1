@@ -5,7 +5,14 @@ import java.util.Scanner;
 
 public class OperatorView implements IOperatorView {
 
+	Scanner scan;
 	public OperatorView(){
+		scan = new Scanner(System.in);
+	}
+	
+	@Override
+	public void finalize(){
+		scan.close();
 	}
 
 	public int menuChoice(){
@@ -14,9 +21,8 @@ public class OperatorView implements IOperatorView {
 		System.out.println("2. Change password");
 		System.out.println("3. Weighing");
 		System.out.println("4. Exit");
-		Scanner scan = new Scanner(System.in);
-		int choice = scan.nextInt();
-		scan.close();
+		int choice = Integer.parseInt(scan.nextLine());
+		
 		if (choice > 0 && choice < 5)
 			return choice;
 		System.out.println("Invalid choice");
@@ -30,9 +36,8 @@ public class OperatorView implements IOperatorView {
 		System.out.println("2. Delete operator");
 		System.out.println("3. View operators");
 		System.out.println("4. Update opoerator");
-		Scanner scan = new Scanner(System.in);
 		int choice = scan.nextInt();
-		scan.close();
+	
 		if (choice > 0 && choice < 5)
 			return choice;
 		System.out.println("Invalid choice");
@@ -41,29 +46,24 @@ public class OperatorView implements IOperatorView {
 	}
 
 	public int getOprID(){
-		Scanner scan = new Scanner(System.in);
+		
 		System.out.println("Enter OprID: ");
-		int oprID = scan.nextInt();
-		scan.close();
+		int oprID = Integer.parseInt(scan.nextLine());
 		return oprID;
 	}
 
 	public String getPassword() {
-		Scanner scan = new Scanner(System.in);
 		System.out.println("Enter password: ");
 		String password = scan.nextLine();
-		scan.close();
 		return password;
 	}
 
 	public String getNewPassword(){
-		Scanner scan = new Scanner(System.in);
 		while (true){
 			System.out.println("Enter new password: ");
 			String password1 = scan.nextLine();
 			System.out.println("Enter new password again: ");
 			String password2 = scan.nextLine();
-			scan.close();
 			if (password1.equals(password2)){
 				return password1;
 			}
@@ -74,18 +74,14 @@ public class OperatorView implements IOperatorView {
 	}
 
 	public double getTara(){
-		Scanner scan = new Scanner(System.in);
 		System.out.println("Enter TARA in kg.");
 		double tara = scan.nextDouble();
-		scan.close();
 		return tara;
 	}
 
 	public double getBrutto(){
-		Scanner scan = new Scanner(System.in);
 		System.out.println("Enter gross in kg.");
 		double brutto = scan.nextDouble();
-		scan.close();
 		return brutto;
 
 	}
@@ -97,18 +93,14 @@ public class OperatorView implements IOperatorView {
 	}
 
 	public String getOprName(){
-		Scanner scan = new Scanner(System.in);
 		System.out.println("Enter Opr name: ");
 		String oprName = scan.nextLine();
-		scan.close();
 		return oprName;
 	}
 
 	public String getCPR(){
-		Scanner scan = new Scanner(System.in);
 		System.out.println("Enter CPR: ");
 		String cpr = scan.nextLine();
-		scan.close();
 		return cpr;
 	}
 
@@ -124,9 +116,7 @@ public class OperatorView implements IOperatorView {
 	public int getUpdateChoice(){
 		System.out.println("1. Change cprNr");
 		System.out.println("2. Change name");
-		Scanner scan = new Scanner(System.in);
 		int choice = scan.nextInt();
-		scan.close();
 		if (choice > 0 && choice < 3)
 			return choice;
 		System.out.println("Invalid choice");
