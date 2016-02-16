@@ -9,7 +9,11 @@ public class OperatorDTO{
 	private String oprName;
 	private String cpr;			// CPR should be on the from xxxxxx-xxxx
 	private String password;
+	boolean admin = false;
 	
+	public OperatorDTO(){
+		
+	}
 	
 	// Copy Constructor
 	public OperatorDTO(OperatorDTO opr){
@@ -44,6 +48,16 @@ public class OperatorDTO{
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
+	public boolean isAdmin() {
+		return admin;
+	}
+
+	public void setAdmin(boolean admin) {
+		this.admin = admin;
+	}
+	
+	
 
 
 }

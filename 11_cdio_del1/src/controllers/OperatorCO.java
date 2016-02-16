@@ -69,7 +69,25 @@ public class OperatorCO{
 	private boolean login(boolean adminNeeded){
 		int ID = view.getOprID();
 		String pass = view.getPassword();
-		return false;
+
+		try{
+			if(adminNeeded){
+				if(pass.equals(data.getOperator(ID).getPassword()) && 
+						data.getOperator(ID).isAdmin())
+						return true;
+				else
+					return false;
+			}
+			else{
+				if(pass.equals(data.getOperator(ID).getPassword()))
+					return true;
+				else
+					return false;
+			}
+		}
+		catch(DALException e){
+			return false;
+		}
 	}
 
 	private void changePassword(){
@@ -140,7 +158,7 @@ public class OperatorCO{
 	}
 
 	private String generatePassword(){
-		return null;
+		return "01psGH.-";
 	}
 
 

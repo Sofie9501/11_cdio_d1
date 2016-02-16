@@ -12,6 +12,16 @@ public class OperatorData implements IOperatorDAO{
 
 	public OperatorData(){
 		operators =  new ArrayList<>();
+		
+		// Tilføjer admin
+		OperatorDTO admin = new OperatorDTO();
+		admin.setOprId(10);
+		admin.setCpr("123456-7890");
+		admin.setPassword("Abc02324");
+		admin.setAdmin(true);
+		admin.setOprName("Administrator");
+		
+		operators.add(admin);
 	}
 
 	// Returns an operator object if opr id exist otherwise throws exception
@@ -43,10 +53,10 @@ public class OperatorData implements IOperatorDAO{
 	public void createOperator(OperatorDTO opr) throws DALException {
 		for(OperatorDTO oprerator: operators){
 			if (oprerator.getOprId()==opr.getOprId()){
-				throw new DALException(opr.getOprId() + " already exist.");
+				throw new DALException("OperatorId " + opr.getOprId() + " already exist.");
 			}
 			else if (oprerator.getCpr()==opr.getCpr()){
-				throw new DALException(opr.getCpr() + " already exist.");
+				throw new DALException("Cpr " + opr.getCpr() + " already exist.");
 			}
 		}
 		operators.add(opr);
@@ -54,10 +64,10 @@ public class OperatorData implements IOperatorDAO{
 
 	@Override
 	public void updateOperator(OperatorDTO opr) throws DALException {
-		for (int i = 0; i < operators.size(); i++) {
-			if (operators.get(i).getOprId()==opr.getOprId()){
-				operators.get(i).setCpr(opr.getCpr());
-				operators.get(i).setOprName(opr.getOprName());
+		for(OperatorDTO oprerator: operators) {
+			if (oprerator.getOprId()==opr.getOprId()){
+				oprerator.setCpr(opr.getCpr());
+				oprerator.setOprName(opr.getOprName());
 				return;
 			}
 		}
@@ -66,9 +76,9 @@ public class OperatorData implements IOperatorDAO{
 
 	@Override
 	public void deleteOperator(OperatorDTO opr) throws DALException {
-		for (int i = 0; i < operators.size(); i++) {
-			if (operators.get(i).getOprId()==opr.getOprId()){
-				operators.remove(i);
+		for(OperatorDTO oprerator: operators) {
+			if (oprerator.getOprId()==opr.getOprId()){
+				operators.remove(oprerator);
 				return;
 			}
 		}
