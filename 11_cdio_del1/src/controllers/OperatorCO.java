@@ -110,11 +110,16 @@ public class OperatorCO{
 	}
 
 	private void addOperator(){
+		int oprID = getNextOprID();
+		if (oprID == -1){
+			view.showError("No available operator spaces");
+			return;
+		}
 		OperatorDTO operator = new OperatorDTO();
 		operator.setOprName(view.getOprName());
 		operator.setCpr(view.getCPR());
 		operator.setPassword(generatePassword());
-		operator.setOprId(getNextOprID());
+		operator.setOprId(oprID);
 		try{
 			data.createOperator(operator);
 		}catch (DALException e){
