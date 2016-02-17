@@ -32,7 +32,7 @@ public class OperatorView implements IOperatorView {
 	}
 
 	public int adminMenuChoice(){
-		System.out.println("You are now loged in, what do you want to do?");
+		System.out.println("You are now logged in. What do you want to do?");
 		System.out.println("1. Create new operator");
 		System.out.println("2. Delete operator");
 		System.out.println("3. View operators");
@@ -88,9 +88,9 @@ public class OperatorView implements IOperatorView {
 	}
 
 	public void showNetto(double Tara, double Brutto, double Netto){
-		System.out.println("You have entered gross: " + Brutto + "kg");
-		System.out.println("You have entered TARA: " + Tara + "kg");
-		System.out.println("Net is: " + Netto + "kg");
+		System.out.println("You have entered gross: " + Brutto + "kg.");
+		System.out.println("You have entered TARA: " + Tara + "kg.");
+		System.out.println("Net is: " + Netto + "kg.");
 		scan.nextLine();
 	}
 
@@ -121,7 +121,7 @@ public class OperatorView implements IOperatorView {
 		int choice = Integer.parseInt(scan.nextLine());
 		if (choice > 0 && choice < 3)
 			return choice;
-		System.out.println("Invalid choice");
+		System.out.println("Invalid choice. ");
 		return 0;
 
 	}
