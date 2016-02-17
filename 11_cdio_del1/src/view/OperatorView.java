@@ -6,11 +6,11 @@ import java.util.Scanner;
 public class OperatorView implements IOperatorView {
 
 	Scanner scan;
-	
+
 	public OperatorView(){
 		scan = new Scanner(System.in);
 	}
-	
+
 	@Override
 	public void finalize(){
 		scan.close();
@@ -23,12 +23,12 @@ public class OperatorView implements IOperatorView {
 		System.out.println("3. Weighing");
 		System.out.println("4. Exit");
 		int choice = Integer.parseInt(scan.nextLine());
-		
+
 		if (choice > 0 && choice < 5)
 			return choice;
 		System.out.println("Invalid choice");
 		return 0;
-		
+
 	}
 
 	public int adminMenuChoice(){
@@ -38,7 +38,7 @@ public class OperatorView implements IOperatorView {
 		System.out.println("3. View operators");
 		System.out.println("4. Update operator");
 		int choice = Integer.parseInt(scan.nextLine());
-	
+
 		if (choice > 0 && choice < 5)
 			return choice;
 		System.out.println("Invalid choice");
@@ -78,14 +78,26 @@ public class OperatorView implements IOperatorView {
 	}
 
 	public double getTara(){
-		System.out.println("Enter TARA in kg.");
-		double tara = Double.parseDouble(scan.nextLine());
+		double tara=0;
+		do{
+			System.out.println("Enter TARA in kg.");
+			tara = Double.parseDouble(scan.nextLine());
+			if(tara<=0){
+				System.out.println("TARA must be greater than 0\n");
+			}
+		}while(tara<=0);
 		return tara;
 	}
 
 	public double getBrutto(){
-		System.out.println("Enter gross in kg.");
-		double brutto = Double.parseDouble(scan.nextLine());
+		double brutto=0;
+		do{
+			System.out.println("Enter gross in kg.");
+			brutto = Double.parseDouble(scan.nextLine());
+			if(brutto <= getTara()){
+				System.out.println("Brutto must be greater than TARA\n");
+			}
+		}while(brutto <= getTara());
 		return brutto;
 
 	}
