@@ -13,7 +13,7 @@ public class OperatorData implements IOperatorDAO{
 	public OperatorData(){
 		operators =  new ArrayList<>();
 		
-		// Tilføjer admin
+		// Tilføjer admin med prækonfigurerede værdier
 		OperatorDTO admin = new OperatorDTO();
 		admin.setOprId(10);
 		admin.setCpr("123456-7890");
@@ -76,12 +76,7 @@ public class OperatorData implements IOperatorDAO{
 
 	@Override
 	public void deleteOperator(OperatorDTO opr) throws DALException {
-		for(OperatorDTO oprerator: operators) {
-			if (oprerator.getOprId()==opr.getOprId()){
-				operators.remove(oprerator);
-				return;
-			}
-		}
-		throw new DALException(opr.getOprId() + " can't be deleted, cause OprID does not exist");
+		if(!operators.remove(this.getOperator(opr.getOprId())))
+			throw new DALException(opr.getOprId() + " can't be deleted, cause OprID does not exist");
 	}
 }
