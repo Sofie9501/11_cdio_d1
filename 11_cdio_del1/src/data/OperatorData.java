@@ -49,6 +49,8 @@ public class OperatorData implements IOperatorDAO{
 		return clonedList;
 	}
 
+	/// takes an operator transfer object and creates an operator.
+	/// if operator id and cpr is identical no operators is created
 	@Override
 	public void createOperator(OperatorDTO opr) throws DALException {
 		for(OperatorDTO oprerator: operators){
@@ -62,6 +64,7 @@ public class OperatorData implements IOperatorDAO{
 		operators.add(opr);
 	}
 
+	// takes an operator transferobject, and updates cpr and name.
 	@Override
 	public void updateOperator(OperatorDTO opr) throws DALException {
 		for(OperatorDTO oprerator: operators) {
@@ -74,6 +77,7 @@ public class OperatorData implements IOperatorDAO{
 		throw new DALException(opr.getOprId() + " can't be updated, cause OprID does not exist");
 	}
 
+	// deletes an operator using operator id from operatorDTO
 	@Override
 	public void deleteOperator(OperatorDTO opr) throws DALException {
 		if(!operators.remove(this.getOperator(opr.getOprId())))
