@@ -80,7 +80,10 @@ public class OperatorData implements IOperatorDAO{
 	// deletes an operator using operator id from operatorDTO
 	@Override
 	public void deleteOperator(OperatorDTO opr) throws DALException {
-		if(!operators.remove(this.getOperator(opr.getOprId())))
+		try{
+			operators.remove(this.getOperator(opr.getOprId()));
+		}catch(DALException e){
 			throw new DALException(opr.getOprId() + " can't be deleted, cause OprID does not exist");
+		}
 	}
 }
