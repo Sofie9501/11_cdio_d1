@@ -133,7 +133,7 @@ public class OperatorCO{
 
 	private void removeOperator(){
 		int id = view.getOprID();
-		if (id > 11 && id < 89){
+		if (id >= 11 && id <= 99){
 			try{
 				data.deleteOperator(data.getOperator(id));
 			}catch(DALException e){
@@ -247,8 +247,11 @@ public class OperatorCO{
 		}
 		Collections.sort(operators);
 		for(int i = 0; i < operators.size(); i++){
-			if(i+10 == operators.get(i).getOprId())
+			if(i+10 != operators.get(i).getOprId())
 				return i+10;
+			if(i+1 == operators.size() && operators.size() != 90)
+				return i+11;
+			
 		}
 		return -1;
 	}
