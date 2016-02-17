@@ -50,7 +50,7 @@ public class OperatorData implements IOperatorDAO{
 	}
 
 	/// takes an operator transfer object and creates an operator.
-	/// if operator id and cpr is identical no operators is created
+	/// if operator id and cpr is identical to already existing operator no operators is created
 	@Override
 	public void createOperator(OperatorDTO opr) throws DALException {
 		for(OperatorDTO oprerator: operators){

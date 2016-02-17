@@ -46,19 +46,22 @@ public class OperatorView implements IOperatorView {
 
 	}
 
+	//Is used when a person has to enter their OprId
 	public int getOprID(){
-		
 		System.out.println("Enter OprID: ");
 		int oprID = Integer.parseInt(scan.nextLine());
 		return oprID;
 	}
 
+	//Is used when a person has to enter a password
 	public String getPassword() {
 		System.out.println("Enter password: ");
 		String password = scan.nextLine();
 		return password;
 	}
 
+	//is used when a person wants to change their password, it checks to make sure that the password is entered twice and that
+	// the two password are the same, if they are not the same, the person has to enter the password twice again
 	public String getNewPassword(){
 		while (true){
 			System.out.println("Enter new password: ");
@@ -94,22 +97,26 @@ public class OperatorView implements IOperatorView {
 		scan.nextLine();
 	}
 
+	//Is used to get a person to enter a name
 	public String getOprName(){
 		System.out.println("Enter Opr name: ");
 		String oprName = scan.nextLine();
 		return oprName;
 	}
 
+	//Is used to get a person to enter a CPR number
 	public String getCPR(){
 		System.out.println("Enter CPR: ");
 		String cpr = scan.nextLine();
 		return cpr;
 	}
 
+	//prints the operators; OprId, cpr, name and password on the screen
 	public void showOpr (int oprId, String cpr, String name, String password){
 		System.out.println("Opr ID: " + oprId + " Name: " + name + " CPR: " + cpr + " Password: " + password);
 	}
 
+	// show error on the screen
 	public void showError (String error){
 		System.out.println(error);
 		return;
