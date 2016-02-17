@@ -53,9 +53,9 @@ public class OperatorCO{
 	private void weighing(){
 		boolean log = login(false);
 		if (log){
-			double TARA = view.getTara();
+			double tara = view.getTara();
 			double brutto = view.getBrutto();
-			view.showNetto(TARA, brutto, brutto-TARA);
+			view.showNetto(tara, brutto, brutto-tara);
 		}
 		else{
 			view.showError("Wrong login or password");
