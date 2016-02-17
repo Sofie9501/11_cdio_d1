@@ -64,12 +64,19 @@ public class OperatorCO{
 
 	}
 
+	//Grants access to an user if he/she gives the correct ID and password.
+	//If an admin is needed to login, the parameter "adminNeeded" should be true, so the
+	//method can expect an admin. 
+	//returns a boolean if the login succeeded. 
 	private boolean login(boolean adminNeeded){
+		//asks the user for the information.
 		int ID = view.getOprID();
 		String pass = view.getPassword();
 
 		try{
 			if(adminNeeded){
+				//checks if the given password corresponds to the given ID and
+				//if the given ID is an admin - if not, it returns false.  
 				if(pass.equals(data.getOperator(ID).getPassword()) && 
 						data.getOperator(ID).isAdmin())
 					return true;
@@ -77,29 +84,39 @@ public class OperatorCO{
 					return false;
 			}
 			else{
+				//as a normal operator-login it only checks if the password corresponds
+				//to the given ID. 
 				if(pass.equals(data.getOperator(ID).getPassword()))
 					return true;
 				else
 					return false;
 			}
 		}
+		//catches possible errors and returns false. This will make the 
+		//method "adminMenu" tell the user, that something went wrong.
 		catch(DALException e){
 			return false;
 		}
 	}
 
+	//makes it possible for an operator to change his/her password.
 	private void changePassword(){
+		//asks for information
 		int ID = view.getOprID();
 		String oldPass = view.getPassword();
 
 		try{		
+			//checks that the information is valid.
+			//then asks the operator to enter a new password. 
+			//the method "validatePassword" takes care of the password
+			//requirements. 
 			if(oldPass.equals(data.getOperator(ID))){
 				String newPass = view.getNewPassword();
 				if (validatePassword(newPass)){
 					data.getOperator(ID).setPassword(newPass);
 				}
 				else 
-					view.showError("New password is not okay");
+					view.showError("New password is not okay. ");
 			}
 			else
 				view.showError("Wrong ID or password. ");
