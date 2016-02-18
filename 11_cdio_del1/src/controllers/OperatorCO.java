@@ -179,6 +179,7 @@ public class OperatorCO{
 		}
 	}
 
+	
 	private void updateOperator(){
 		OperatorDTO opr;
 		
@@ -261,6 +262,7 @@ public class OperatorCO{
 		return false;
 	}
 
+	// finds the next available operatorid between 11 and 99
 	private int getNextOprID(){
 		List<OperatorDTO> operators;
 		try{
