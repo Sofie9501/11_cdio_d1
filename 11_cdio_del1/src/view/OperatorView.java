@@ -46,26 +46,31 @@ public class OperatorView implements IOperatorView {
 
 	}
 
-	//Is used when a person has to enter their OprId
+	//Is used when a person has to enter their OprID
 	public int getOprID(){
 		String message = "Invalid ID. Should only consist of numbers. ";
 		int oprID = 0;
 		
+		//This loop continues until the operator has entered a valid ID.
 		while(true){
 			System.out.println("Enter operator ID: ");
 			
 			try{
 				String input = scan.nextLine();
 				
+				//Checks if the input is empty and gives a message.
 				if(input.isEmpty()){
 					System.out.println(message);
 					break;
 				}
 				else{
+					//If not, the String will be parsed and returned.
 					oprID = Integer.parseInt(input);
 					return oprID;
 				}
 
+				//Catches the exception that occurs if the operator enters invalid
+				//ID. For example a mix of letters and numbers. 
 			}catch(NumberFormatException e){
 				System.out.println(message);
 			}
@@ -144,7 +149,7 @@ public class OperatorView implements IOperatorView {
 			if(cpr.matches("[0-3][0-9][0-1][0-9]\\d{2}-\\d{4}?[^0-9]*"))
 				return cpr;
 			else
-				System.out.println("Invalid Cpr, try again:");
+				System.out.println("Invalid CPR, try again:");
 		}
 	}
 
