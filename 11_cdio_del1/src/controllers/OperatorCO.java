@@ -1,6 +1,6 @@
 package controllers;
 
-import java.util.Collections;
+
 import java.util.List;
 
 import data.IOperatorDAO;
@@ -155,7 +155,9 @@ public class OperatorCO{
 		view.showOpr(operator.getOprId(), operator.getCpr(), 
 				operator.getOprName(), operator.getPassword());
 	}
-
+	/**********************************************************
+	 * Used to remove operators. Accessed from the admin menu *
+	 **********************************************************/
 	private void removeOperator(){
 		int id = view.getOprID();
 		if (id >= 11 && id <= 99){
@@ -171,7 +173,10 @@ public class OperatorCO{
 			view.showError("Invalid Operator ID");
 		}
 	}
-
+	
+	/******************************
+	 * Prints out all operators   *
+	 ******************************/
 
 	private void viewOperator(){
 		List<OperatorDTO> operators = null;
@@ -186,7 +191,9 @@ public class OperatorCO{
 			view.showOpr(DTO.getOprId(), DTO.getCpr(), DTO.getOprName(), DTO.getPassword());
 		}
 	}
-
+	/**********************************************************
+	 * Used to change the name or CPR number of an operator   *
+	 **********************************************************/
 	
 	private void updateOperator(){
 		OperatorDTO opr;
