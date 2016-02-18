@@ -55,7 +55,7 @@ public class OperatorView implements IOperatorView {
 			System.out.println("Enter operator ID: ");
 			
 			try{
-				String input = scan.next();
+				String input = scan.nextLine();
 				
 				if(input.isEmpty()){
 					System.out.println(message);
