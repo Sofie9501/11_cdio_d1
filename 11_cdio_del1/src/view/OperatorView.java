@@ -72,7 +72,7 @@ public class OperatorView implements IOperatorView {
 				return password1;
 			}
 			else{
-				System.out.println("The two password are not equal, try again: ");
+				System.out.println("The two passwords are not equal, try again: ");
 			}
 		}
 	}
@@ -111,7 +111,7 @@ public class OperatorView implements IOperatorView {
 
 	//Is used to get a person to enter a name
 	public String getOprName(){
-		System.out.println("Enter Opr name: ");
+		System.out.println("Enter Operator name: ");
 		String oprName = scan.nextLine();
 		return oprName;
 	}

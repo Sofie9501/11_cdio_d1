@@ -116,7 +116,7 @@ public class OperatorCO{
 					data.getOperator(ID).setPassword(newPass);
 				}
 				else 
-					view.showError("New password is not okay. - Check rules for password creation");
+					view.showError("New password is not valid. - Check rules for password creation");
 			}
 			else
 				view.showError("Wrong ID or password. ");
