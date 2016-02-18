@@ -89,15 +89,15 @@ public class OperatorView implements IOperatorView {
 		return tara;
 	}
 
-	public double getBrutto(){
+	public double getBrutto(double tara){
 		double brutto=0;
 		do{
 			System.out.println("Enter gross in kg.");
 			brutto = Double.parseDouble(scan.nextLine());
-			if(brutto <= getTara()){
+			if(brutto <= tara){
 				System.out.println("Brutto must be greater than TARA\n");
 			}
-		}while(brutto <= getTara());
+		}while(brutto <= tara);
 		return brutto;
 
 	}

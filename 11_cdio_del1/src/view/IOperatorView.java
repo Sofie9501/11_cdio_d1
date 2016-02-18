@@ -8,7 +8,7 @@ public interface IOperatorView {
 	public String getPassword();
 	public String getNewPassword();
 	public double getTara();
-	public double getBrutto();
+	public double getBrutto(double tara);
 	public void showNetto(double tara, double brutto, double netto);
 	public String getOprName();
 	public String getCPR();

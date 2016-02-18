@@ -54,7 +54,7 @@ public class OperatorCO{
 		boolean log = login(false);
 		if (log){
 			double tara = view.getTara();
-			double brutto = view.getBrutto();
+			double brutto = view.getBrutto(tara);
 			view.showNetto(tara, brutto, brutto-tara);
 		}
 		else{
