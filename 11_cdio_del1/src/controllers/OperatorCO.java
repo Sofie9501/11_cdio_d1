@@ -17,7 +17,9 @@ public class OperatorCO{
 		this.data = data;
 	}
 
-
+	/***************************************************
+	 * Main menu that keeps running util you press 4   *
+	 ***************************************************/
 	public void run(){
 		while(true){
 			int choice = view.menuChoice();
@@ -30,16 +32,20 @@ public class OperatorCO{
 		}
 
 	}
-
+	/***********************************************
+	 * Admin menu only accessed after admin login  *
+	 ***********************************************/
 	private void adminMenu(){
 		boolean log = login(true);
 		int choice = 0;
+		// Checks to see if login was a success
 		if (log)
 			choice = view.adminMenuChoice();
 		else{
 			view.showError("Wrong login or password");
 			return;
 		}
+		// If the input is is not 1-4, view returns 0
 		if (choice == 0)
 			return;
 		switch(choice){
@@ -126,7 +132,9 @@ public class OperatorCO{
 			return;
 		}
 	}
-
+	/**********************************
+	 * Used to create new operators   *
+	 **********************************/
 	private void addOperator(){
 		int oprID = getNextOprID();
 		if (oprID == -1){
