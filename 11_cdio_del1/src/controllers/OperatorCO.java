@@ -110,13 +110,13 @@ public class OperatorCO{
 			//then asks the operator to enter a new password. 
 			//the method "validatePassword" takes care of the password
 			//requirements. 
-			if(oldPass.equals(data.getOperator(ID))){
+			if(oldPass.equals(data.getOperator(ID).getPassword())){
 				String newPass = view.getNewPassword();
 				if (validatePassword(newPass)){
 					data.getOperator(ID).setPassword(newPass);
 				}
 				else 
-					view.showError("New password is not okay. ");
+					view.showError("New password is not okay. - Check rules for password creation");
 			}
 			else
 				view.showError("Wrong ID or password. ");
