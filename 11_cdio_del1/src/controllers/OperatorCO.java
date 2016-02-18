@@ -160,7 +160,7 @@ public class OperatorCO{
 			view.showError("Operator removed");
 		}
 		else{
-			view.showError("Invalid OperatorID");
+			view.showError("Invalid Operator ID");
 		}
 	}
 
@@ -180,23 +180,27 @@ public class OperatorCO{
 	}
 
 	private void updateOperator(){
-		OperatorDTO DTO = null;
+		OperatorDTO opr;
+		
 		try{
-			DTO = data.getOperator(view.getOprID());
+			opr = data.getOperator(view.getOprID());
 		}catch(DALException e){
 			view.showError(e.getMessage());
 			return;
 		}
+		
 		int choice = view.getUpdateChoice();
 		if (choice == 0){
 			return;
 		}
+		
 		switch (choice){
-		case 1: DTO.setOprName(view.getOprName());break;
-		case 2: DTO.setCpr(view.getCPR());break;
+		case 1: opr.setOprName(view.getOprName());break;
+		case 2: opr.setCpr(view.getCPR());break;
 		}
+		
 		try{
-			data.updateOperator(DTO);
+			data.updateOperator(opr);
 		}catch(DALException e){
 			view.showError(e.getMessage());
 		}
@@ -256,19 +260,24 @@ public class OperatorCO{
 		// password not verified
 		return false;
 	}
-	
-	@SuppressWarnings("unchecked")
+
 	private int getNextOprID(){
 		List<OperatorDTO> operators;
 		try{
 		operators = data.getOperatorList();
 		}catch(DALException e){
+			// no operators in list, lets just use operatorID 11
 			return 11;
 		}
-		Collections.sort(operators);
+		
 		for(int i = 0; i < operators.size(); i++){
+			// first operator id is 10. which is why we check i+10
 			if(i+10 != operators.get(i).getOprId())
 				return i+10;
+			
+			// if all operators is in line, that is we have operator 10,11,12,13.
+			// We need to get a new operator id which should be the size of
+			// the operatorlist + 10. This is equal to the last i, plus 11
 			if(i+1 == operators.size() && operators.size() != 90)
 				return i+11;
 			
