@@ -22,7 +22,12 @@ public class OperatorView implements IOperatorView {
 		System.out.println("2. Change password");
 		System.out.println("3. Weighing");
 		System.out.println("4. Exit");
-		int choice = Integer.parseInt(scan.nextLine());
+		while(!scan.hasNextInt()){
+			System.out.println("Not correct input");
+			scan.next();
+		}
+		int choice = scan.nextInt();
+		scan.nextLine();
 
 		if (choice > 0 && choice < 5)
 			return choice;
@@ -37,7 +42,12 @@ public class OperatorView implements IOperatorView {
 		System.out.println("2. Delete operator");
 		System.out.println("3. View operators");
 		System.out.println("4. Update operator");
-		int choice = Integer.parseInt(scan.nextLine());
+		while(!scan.hasNextInt()){
+			System.out.println("Not correct input");
+			scan.next();
+		}
+		int choice = scan.nextInt();
+		scan.nextLine();
 
 		if (choice > 0 && choice < 5)
 			return choice;
