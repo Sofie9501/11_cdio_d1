@@ -196,8 +196,8 @@ public class OperatorCO{
 		}
 		
 		switch (choice){
-		case 1: opr.setOprName(view.getOprName());break;
-		case 2: opr.setCpr(view.getCPR());break;
+		case 1: opr.setCpr(view.getCPR());break;
+		case 2: opr.setOprName(view.getOprName());break;
 		}
 		
 		try{
