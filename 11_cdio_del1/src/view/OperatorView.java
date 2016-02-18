@@ -118,9 +118,14 @@ public class OperatorView implements IOperatorView {
 
 	//Is used to get a person to enter a CPR number
 	public String getCPR(){
-		System.out.println("Enter CPR: ");
-		String cpr = scan.nextLine();
-		return cpr;
+		while(true){
+			System.out.println("\nEnter CPR in the form xxxxxx-xxxx: ");
+			String cpr = scan.nextLine();
+			if(cpr.matches("[0-3][0-9][0-1][1-9]\\d{2}-\\d{4}?[^0-9]*"))
+				return cpr;
+			else
+				System.out.println("Invalid Cpr, try again:");
+		}
 	}
 
 	//prints the operators; OprId, cpr, name and password on the screen
