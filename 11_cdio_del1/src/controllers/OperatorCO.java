@@ -219,26 +219,26 @@ public class OperatorCO{
 	//This method generates a password, with random chars in pre specified categories. Length determined by "passLength" variable 
 	private static String genPassword(int passLength) {
 
-		char[] password = new char[passLength]; // generates an array of chars which will contain the password generated
+		String password = ""; // hold the password to be generated
 		
 		String chars = ".-_+!?="; // String of allowed chars.
 		 
-		password[0] = (char)randInt(48, 57); //chooses a random number between 0 and 9
-		password[1] = (char)randInt(65, 90); //chooses a random capital letter between A and Z
-		password[2] = (char)randInt(97,122); //chooses a random letter between A and Z
-		password[3] = chars.charAt(randInt(0,6)); ////chooses a random char in the string "chars" 
+		password += (char)randInt(48, 57); //chooses a random number between 0 and 9
+		password += (char)randInt(65, 90); //chooses a random capital letter between A and Z
+		password += (char)randInt(97,122); //chooses a random letter between A and Z
+		password += chars.charAt(randInt(0,6)); ////chooses a random char in the string "chars" 
 		
 		//Generates random chars after the 4. char. Between numbers, capital letters, letter, and symbols has in shown "chars"
 		//It runs ,4 - password length, times.
 		for(int i =4; i<passLength; i++){
-			switch(randInt(0,3)){
-				case 0:	password[i] = (char)randInt(48, 57);
-				case 1:	password[i] = (char)randInt(65, 90);
-				case 2:	password[i] = (char)randInt(97,122);
-				case 3:	password[i] = chars.charAt(randInt(0,6));	
+			switch((int)(Math.random()*4)){
+				case 0:	password += (char)randInt(48, 58); break;
+				case 1:	password += (char)randInt(65, 91); break;
+				case 2:	password += (char)randInt(97,123); break;
+				case 3:	password += chars.charAt(randInt(0,7)); break;
 			}
 		}
-		return password.toString();
+		return password;
 	}
 
 
