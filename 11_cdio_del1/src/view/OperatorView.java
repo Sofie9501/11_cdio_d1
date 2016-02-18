@@ -102,10 +102,10 @@ public class OperatorView implements IOperatorView {
 
 	}
 
-	public void showNetto(double Tara, double Brutto, double Netto){
-		System.out.println("You have entered gross: " + Brutto + "kg.");
-		System.out.println("You have entered TARA: " + Tara + "kg.");
-		System.out.println("Net is: " + Netto + "kg.");
+	public void showNetto(double tara, double brutto, double netto){
+		System.out.println("You have entered gross: " + brutto + "kg.");
+		System.out.println("You have entered TARA: " + tara + "kg.");
+		System.out.println("Net is: " + netto + "kg.");
 		scan.nextLine();
 	}
 

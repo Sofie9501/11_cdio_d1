@@ -9,7 +9,7 @@ public interface IOperatorView {
 	public String getNewPassword();
 	public double getTara();
 	public double getBrutto();
-	public void showNetto(double Tara, double Brutto, double Netto);
+	public void showNetto(double tara, double brutto, double netto);
 	public String getOprName();
 	public String getCPR();
 	public void showOpr (int oprId, String cpr, String name, String password);
