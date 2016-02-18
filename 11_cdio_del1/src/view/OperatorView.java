@@ -140,7 +140,7 @@ public class OperatorView implements IOperatorView {
 	}
 
 	public int getUpdateChoice(){
-		System.out.println("1. Change cprNr");
+		System.out.println("1. Change CPR-Nr");
 		System.out.println("2. Change name");
 		int choice = Integer.parseInt(scan.nextLine());
 		if (choice > 0 && choice < 3)
