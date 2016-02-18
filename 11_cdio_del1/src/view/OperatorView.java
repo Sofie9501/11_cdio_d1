@@ -48,9 +48,29 @@ public class OperatorView implements IOperatorView {
 
 	//Is used when a person has to enter their OprId
 	public int getOprID(){
-		System.out.println("Enter OprID: ");
-		int oprID = Integer.parseInt(scan.nextLine());
-		return oprID;
+		String message = "Invalid ID. Should only consist of numbers. ";
+		int oprID = 0;
+		
+		while(true){
+			System.out.println("Enter operator ID: ");
+			
+			try{
+				String input = scan.next();
+				
+				if(input.isEmpty()){
+					System.out.println(message);
+					break;
+				}
+				else{
+					oprID = Integer.parseInt(input);
+					return oprID;
+				}
+
+			}catch(NumberFormatException e){
+				System.out.println(message);
+			}
+		}
+		return 0;
 	}
 
 	//Is used when a person has to enter a password
