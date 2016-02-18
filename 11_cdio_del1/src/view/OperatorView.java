@@ -121,7 +121,7 @@ public class OperatorView implements IOperatorView {
 		while(true){
 			System.out.println("\nEnter CPR in the form xxxxxx-xxxx: ");
 			String cpr = scan.nextLine();
-			if(cpr.matches("[0-3][0-9][0-1][1-9]\\d{2}-\\d{4}?[^0-9]*"))
+			if(cpr.matches("[0-3][0-9][0-1][0-9]\\d{2}-\\d{4}?[^0-9]*"))
 				return cpr;
 			else
 				System.out.println("Invalid Cpr, try again:");
