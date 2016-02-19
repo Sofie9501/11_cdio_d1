@@ -23,7 +23,6 @@ public class OperatorDTO implements Comparable{
 		this.password = opr.password;
 	}
 	
-	
 	public int getOprId() {
 		return oprId;
 	}
