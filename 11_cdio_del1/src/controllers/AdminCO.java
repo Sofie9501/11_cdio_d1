@@ -66,7 +66,7 @@ public class AdminCO {
 	 * Prints out all operators   *
 	 ******************************/
 
-	public void viewOperator(){
+	public void viewOperators(){
 		List<OperatorDTO> operators = null;
 		try{
 			operators = data.getOperatorList();
