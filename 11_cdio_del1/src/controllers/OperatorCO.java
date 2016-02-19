@@ -53,7 +53,7 @@ public class OperatorCO{
 		switch(choice){
 		case 1: admin.addOperator(); break;
 		case 2: admin.removeOperator(); break;
-		case 3: admin.viewOperator(); break;
+		case 3: admin.viewOperators(); break;
 		case 4: admin.updateOperator(); break;
 		}
 	}
@@ -137,7 +137,7 @@ public class OperatorCO{
 
 	// validates password using same rules as the dtu password system
 	// returns true if validated
-	private boolean validatePassword(String pass){
+	public boolean validatePassword(String pass){
 		final int MIN_LENGTH = 6;// Minimum length 6
 
 		// check if password is correct length and that it does not
