@@ -115,33 +115,12 @@ public class OperatorView implements IOperatorView {
 
 	public double getTara(){
 		String message = "You must enter numbers like 10 or 5.2";
+		int x = 0;
 		double tara=0;
-		while(true){
-			System.out.println("Enter TARA in kg.");
-//
-//			
-//			try{
-//				double input = 0.0;
-//				input = Double.parseDouble(scan.nextLine());
-//			
-//				if(input < 0){
-//					throw new NumberFormatException();
-//				}
-//				return tara;		
-//			}catch(NumberFormatException e){
-//				System.out.println(message);
-//				getTara();
-//			}catch(InputMismatchException f){
-//				System.out.println(message);
-//				getTara();
-//			}
-			
-			
-			
-			
-			
-			
+		do{
 			try{
+				System.out.println("Enter TARA in kg.");
+
 				String input = scan.nextLine();
 
 				if(input.isEmpty()){
@@ -150,29 +129,27 @@ public class OperatorView implements IOperatorView {
 				else{
 					tara = Double.parseDouble(input);
 					if(tara>0){
-						return tara;
+						x = 1;
 					}
 					else{
 						System.out.println(message);	
 					}
-
 				}
-			}catch(NumberFormatException e){
+			}catch(Exception e){
 				System.out.println(message);
-				getTara();
 			}
-			
-		}
-		
+		}while(x==0);
+		return tara;
 	}
 
 	public double getBrutto(double tara){
 		String message = "You must enter a number there are greater than TARA";
+		int x = 0;
 		double brutto=0;
-		while(true){
-			System.out.println("Enter gross in kg.");
-
+		do{
 			try{
+				System.out.println("Enter gross in kg.");
+
 				String input = scan.nextLine();
 
 				if(input.isEmpty()){
@@ -181,18 +158,17 @@ public class OperatorView implements IOperatorView {
 				else{
 					brutto = Double.parseDouble(input);
 					if(brutto>tara){
-						return brutto;
+						x=1;
 					}
 					else{
 						System.out.println(message);	
 					}
-
 				}
-			}catch(NumberFormatException e){
+			}catch(Exception e){
 				System.out.println(message);
 			}
-			return 0;
-		}
+		}while(x==0);
+		return brutto;
 	}
 
 	public void showNetto(double tara, double brutto, double netto){
