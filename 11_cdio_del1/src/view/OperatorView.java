@@ -112,7 +112,7 @@ public class OperatorView implements IOperatorView {
 			}
 		}
 	}
-
+	// Returning Tara and throws an exception, if the user enters a invalid input.
 	public double getTara(){
 		String message = "You must enter numbers like 10 or 5.2";
 		int x = 0;
@@ -142,6 +142,7 @@ public class OperatorView implements IOperatorView {
 		return tara;
 	}
 
+	// Returning Brutto and throws an exception, if the user enters a invalid input.
 	public double getBrutto(double tara){
 		String message = "You must enter a number there are greater than TARA";
 		int x = 0;
