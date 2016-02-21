@@ -154,10 +154,10 @@ public class OperatorCO{
 			if(pass.matches("(.*)[A-Z](.*)")) ruleCount++;
 			if(pass.matches("(.*)[a-z](.*)")) ruleCount++;
 			if(pass.matches("(.*)[0-9](.*)")) ruleCount++;
-			if(pass.matches("(.*)[.-_+!?=](.*)")) ruleCount++;
+			if(pass.matches("(.*)[.\\-_+!?=](.*)")) ruleCount++;
 
 
-			if(ruleCount >= 3) return true; // password verifed
+			if(ruleCount >= 3) return true; // password verified
 		}
 		// password not verified
 		return false;
