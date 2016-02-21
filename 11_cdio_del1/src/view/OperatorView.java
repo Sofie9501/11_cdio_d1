@@ -172,6 +172,7 @@ public class OperatorView implements IOperatorView {
 		return brutto;
 	}
 
+	// calculating Net
 	public void showNetto(double tara, double brutto, double netto){
 		System.out.println("You have entered gross: " + brutto + "kg.");
 		System.out.println("You have entered TARA: " + tara + "kg.");
