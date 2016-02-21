@@ -57,7 +57,7 @@ public class OperatorCO{
 		case 4: admin.updateOperator(); break;
 		}
 	}
-
+	// Finds the net 
 	private void weighing(){
 		boolean log = login(false);
 		if (log){
