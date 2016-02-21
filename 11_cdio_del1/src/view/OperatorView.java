@@ -1,5 +1,6 @@
 package view;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 
@@ -60,18 +61,17 @@ public class OperatorView implements IOperatorView {
 	public int getOprID(){
 		String message = "Invalid ID. Should only consist of numbers. ";
 		int oprID = 0;
-		
+
 		//This loop continues until the operator has entered a valid ID.
 		while(true){
 			System.out.println("Enter operator ID: ");
-			
+
 			try{
 				String input = scan.nextLine();
-				
+
 				//Checks if the input is empty and gives a message.
 				if(input.isEmpty()){
 					System.out.println(message);
-					break;
 				}
 				else{
 					//If not, the String will be parsed and returned.
@@ -84,8 +84,9 @@ public class OperatorView implements IOperatorView {
 			}catch(NumberFormatException e){
 				System.out.println(message);
 			}
+			return 0;
 		}
-		return 0;
+
 	}
 
 	//Is used when a person has to enter a password
@@ -113,28 +114,85 @@ public class OperatorView implements IOperatorView {
 	}
 
 	public double getTara(){
+		String message = "You must enter numbers like 10 or 5.2";
 		double tara=0;
-		do{
+		while(true){
 			System.out.println("Enter TARA in kg.");
-			tara = Double.parseDouble(scan.nextLine());
-			if(tara<=0){
-				System.out.println("TARA must be greater than 0\n");
+//
+//			
+//			try{
+//				double input = 0.0;
+//				input = Double.parseDouble(scan.nextLine());
+//			
+//				if(input < 0){
+//					throw new NumberFormatException();
+//				}
+//				return tara;		
+//			}catch(NumberFormatException e){
+//				System.out.println(message);
+//				getTara();
+//			}catch(InputMismatchException f){
+//				System.out.println(message);
+//				getTara();
+//			}
+			
+			
+			
+			
+			
+			
+			try{
+				String input = scan.nextLine();
+
+				if(input.isEmpty()){
+					System.out.println(message);
+				}
+				else{
+					tara = Double.parseDouble(input);
+					if(tara>0){
+						return tara;
+					}
+					else{
+						System.out.println(message);	
+					}
+
+				}
+			}catch(NumberFormatException e){
+				System.out.println(message);
+				getTara();
 			}
-		}while(tara<=0);
-		return tara;
+			
+		}
+		
 	}
 
 	public double getBrutto(double tara){
+		String message = "You must enter a number there are greater than TARA";
 		double brutto=0;
-		do{
+		while(true){
 			System.out.println("Enter gross in kg.");
-			brutto = Double.parseDouble(scan.nextLine());
-			if(brutto <= tara){
-				System.out.println("Brutto must be greater than TARA\n");
-			}
-		}while(brutto <= tara);
-		return brutto;
 
+			try{
+				String input = scan.nextLine();
+
+				if(input.isEmpty()){
+					System.out.println(message);
+				}
+				else{
+					brutto = Double.parseDouble(input);
+					if(brutto>tara){
+						return brutto;
+					}
+					else{
+						System.out.println(message);	
+					}
+
+				}
+			}catch(NumberFormatException e){
+				System.out.println(message);
+			}
+			return 0;
+		}
 	}
 
 	public void showNetto(double tara, double brutto, double netto){
