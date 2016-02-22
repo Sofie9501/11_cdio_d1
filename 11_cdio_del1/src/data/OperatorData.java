@@ -57,7 +57,7 @@ public class OperatorData implements IOperatorDAO{
 			if (oprerator.getOprId()==opr.getOprId()){
 				throw new DALException("OperatorId " + opr.getOprId() + " already exist.");
 			}
-			else if (oprerator.getCpr()==opr.getCpr()){
+			else if (oprerator.getCpr().equals(opr.getCpr())){
 				throw new DALException("Cpr " + opr.getCpr() + " already exist.");
 			}
 		}
