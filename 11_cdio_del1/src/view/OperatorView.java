@@ -61,33 +61,31 @@ public class OperatorView implements IOperatorView {
 	public int getOprID(){
 		String message = "Invalid ID. Should only consist of numbers. ";
 		int oprID = 0;
+		int x = 0;
 
-		//This loop continues until the operator has entered a valid ID.
-		while(true){
-			System.out.println("Enter operator ID: ");
+			do{
+				try{
+					System.out.println("Enter operator ID: ");
+					String input = scan.nextLine();
 
-			try{
-				String input = scan.nextLine();
-
-				//Checks if the input is empty and gives a message.
-				if(input.isEmpty()){
+					if(input.isEmpty()){
+						System.out.println(message);
+					}
+					else{
+						oprID = Integer.parseInt(input);
+						if(oprID>0){
+							x = 1;
+						}
+						else{
+							System.out.println(message);	
+						}
+					}
+				}catch(Exception e){
 					System.out.println(message);
 				}
-				else{
-					//If not, the String will be parsed and returned.
-					oprID = Integer.parseInt(input);
-					return oprID;
-				}
-
-				//Catches the exception that occurs if the operator enters invalid
-				//ID. For example a mix of letters and numbers. 
-			}catch(NumberFormatException e){
-				System.out.println(message);
-			}
-			return 0;
+			}while(x == 0);
+			return oprID;
 		}
-
-	}
 
 	//Is used when a person has to enter a password
 	public String getPassword() {
