@@ -176,6 +176,7 @@ public class OperatorView implements IOperatorView {
 		System.out.println("You have entered TARA: " + tara + "kg.");
 		System.out.println("Net is: " + netto + "kg.");
 		System.out.println("Press enter to continue");
+		System.out.println("\nPress any key to return to the main menu.");
 		scan.nextLine();
 	}
 
